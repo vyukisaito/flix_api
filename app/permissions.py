@@ -11,7 +11,7 @@ class GlobalPermission(permissions.BasePermission):
 
         if not model_permission_codename:
             return False
-        
+
         return request.user.has_perm(model_permission_codename)
 
     def __get_model_permission_codename(self, method, view):
@@ -24,13 +24,13 @@ class GlobalPermission(permissions.BasePermission):
             return None
 
     def __get_action_sufix(self, method):
-        method_actions = { 
-            'GET': 'view', 
-            'POST': 'add', 
-            'PUT': 'change', 
-            'PATCH': 'change', 
-            'DELETE': 'delete', 
-            'OPTIONS': 'view', 
-            'HEAD': 'view', 
+        method_actions = {
+            'GET': 'view',
+            'POST': 'add',
+            'PUT': 'change',
+            'PATCH': 'change',
+            'DELETE': 'delete',
+            'OPTIONS': 'view',
+            'HEAD': 'view',
         }
         return method_actions.get(method, '')

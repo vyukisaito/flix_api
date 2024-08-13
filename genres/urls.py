@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views # importar todas as view da msm pasta
+from . import views  # importar todas as view da msm pasta
 
 
 urlpatterns = [

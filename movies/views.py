@@ -35,4 +35,4 @@ class MovieStatsView(views.APIView):
             'total_reviews': total_reviews,
             'avarage_stars': round(avarage_stars, 1) if avarage_stars else 0,
         },
-        status=status.HTTP_200_OK,)
+            status=status.HTTP_200_OK,)
