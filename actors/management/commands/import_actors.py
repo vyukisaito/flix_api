@@ -1,7 +1,7 @@
-import csv # biblioteca nativa do python
+import csv  # biblioteca nativa do python
 from datetime import datetime
 from django.core.management.base import BaseCommand
-from actors.models import Actor # importa Actor para poder fazer o cadastro
+from actors.models import Actor  # importa Actor para poder fazer o cadastro
 
 
 class Command(BaseCommand):
@@ -16,11 +16,11 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         file_name = options['file_name']
 
-        with open(file_name, 'r', encoding='utf-8') as file: # abrindo o arquivo
-            reader = csv.DictReader(file) # ler o arquivo
-            for row in reader: # percorre linha a linha
+        with open(file_name, 'r', encoding='utf-8') as file:  # abrindo o arquivo
+            reader = csv.DictReader(file)  # ler o arquivo
+            for row in reader:  # percorre linha a linha
                 name = row['name']
-                birthday = datetime.strptime(row['birthday'], '%Y-%m-%d').date() # le certo o arquivo quem tem data
+                birthday = datetime.strptime(row['birthday'], '%Y-%m-%d').date()  # le certo o arquivo quem tem data
                 nationality = row['nationality']
 
                 self.stdout.write(self.style.NOTICE(name))
@@ -31,4 +31,4 @@ class Command(BaseCommand):
                     nationality=nationality,
                 )
 
-        self.stdout.write(self.style.SUCCESS('ATORES IMPORTADOS COM SUCESSO!')) # print tunado do djano command
+        self.stdout.write(self.style.SUCCESS('ATORES IMPORTADOS COM SUCESSO!'))  # print tunado do djano command
